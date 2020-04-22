@@ -1,0 +1,22 @@
+#!/bin/sh
+
+uci set luci.main.lang=zh_cn
+uci commit luci
+
+uci set system.@system[0].timezone=CST-8
+uci set system.@system[0].zonename=Asia/Shanghai
+uci commit system
+
+sed -i 's/root::0:0:99999:7:::/root:$1$ebakp6nV$A5.NRxSebkjTclZ3RcFdW.:0:0:99999:7:::/g' /etc/shadow
+
+uci set dhcp.lan.ignore='1'
+uci commit dhcp
+
+uci set network.lan.proto='dhcp'
+uci delete network.lan.type
+uci delete network.lan.ipaddr
+uci delete network.lan.netmask
+uci delete network.lan.ip6assign
+uci commit network
+
+exit 0
