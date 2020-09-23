@@ -25,7 +25,7 @@ PKG_LICENSE_FILES:=LICENSE
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/open-vm-tools-11-0-5
+define Package/open-vm-tools-11.0.5
   SECTION:=utils
   CATEGORY:=Utilities
   DEPENDS:=@TARGET_x86 +glib2 +libpthread +libtirpc
@@ -34,7 +34,7 @@ define Package/open-vm-tools-11-0-5
   MAINTAINER:=Yuhei OKAWA <tochiro.srchack@gmail.com>
 endef
 
-define Package/open-vm-tools-11-0-5/description
+define Package/open-vm-tools-11.0.5/description
 	Open Virtual Machine Tools for VMware guest OS
 endef
 
@@ -62,7 +62,7 @@ CONFIGURE_ARGS+= \
 	--enable-resolutionkms=no
 
 
-define Package/open-vm-tools-11-0-5/install
+define Package/open-vm-tools-11.0.5/install
 	$(INSTALL_DIR) $(1)/etc/init.d/
 	$(INSTALL_BIN) ./files/vmtoolsd.init $(1)/etc/init.d/vmtoolsd
 
@@ -114,4 +114,4 @@ define Package/open-vm-tools-11-0-5/install
 	$(CP) $(PKG_INSTALL_DIR)/usr/share/open-vm-tools/messages/ja/vmtoolsd.vmsg $(1)/usr/share/open-vm-tools/messages/ja/
 endef
 
-$(eval $(call BuildPackage,open-vm-tools-11-0-5))
+$(eval $(call BuildPackage,open-vm-tools-11.0.5))
